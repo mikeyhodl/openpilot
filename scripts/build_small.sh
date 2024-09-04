@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -ex
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
@@ -26,7 +26,7 @@ cd $OUT
 git tag -l | xargs git tag -d
 
 # remove non-master branches
-BRANCHES="release2 dashcam dashcam3 release3 devel master-ci nightly"
+BRANCHES="release2 release3 devel master-ci nightly"
 for branch in $BRANCHES; do
   git branch -D $branch
   git branch -D ${branch}-staging || true
